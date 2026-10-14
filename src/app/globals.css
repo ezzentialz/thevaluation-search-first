@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Playfair+Display:wght@500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body { overflow-x: hidden; background: #fff; color: #1a2040; line-height: 1.7; font-size: 16px; }
+html[lang='th'] body { line-height: 1.75; }
+section[id] { scroll-margin-top: 112px; }
+
+:focus-visible { outline: 3px solid #b08d3c; outline-offset: 2px; }
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1240px] px-4 sm:px-6 lg:px-8; }
+  .font-display { line-height: 1.2; }
+  html[lang='th'] .font-display { line-height: 1.5; }
+
+  /* small uppercase label; Thai has no case so tracking is dropped */
+  .eyebrow { @apply text-[0.8125rem] font-semibold uppercase tracking-[0.14em]; }
+  html[lang='th'] .eyebrow { @apply tracking-normal normal-case text-sm; }
+
+  .btn { @apply inline-flex min-h-[44px] items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold transition-colors duration-200; }
+  .btn-primary { @apply btn bg-gold text-navy-950 hover:bg-[#c4a04c]; }
+  .btn-outline-light { @apply btn border border-white/60 text-white hover:bg-white hover:text-navy-800; }
+  .btn-outline-dark { @apply btn border border-navy-800 text-navy-800 hover:bg-navy-800 hover:text-white; }
+
+  .field-label { @apply mb-1 block text-sm font-medium text-ink; }
+  .field { @apply min-h-[44px] w-full border border-[#c5c9d8] bg-white px-3 py-2 text-base text-ink placeholder:text-slate2/70 focus:border-royal; }
+  .field-dark { @apply min-h-[44px] w-full rounded-none border-0 border-b border-white/40 bg-transparent px-0 py-2 text-base text-white placeholder:text-white/60 focus:border-gold; }
+}
+
+dialog::backdrop { background: rgba(9, 17, 56, 0.7); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
